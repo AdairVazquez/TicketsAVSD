@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('rol', function (Blueprint $table) {
+        Schema::create('estados', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre_rol', 255);
-            $table->timestamp('creado_en')->useCurrent();
-            $table->timestamp('actualizado_en')->useCurrent()->useCurrentOnUpdate();
+            $table->string('nombre_estado', 50);
+            $table->timestamps();
         });
     }
 
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('rol');
+        Schema::dropIfExists('estados');
     }
 };

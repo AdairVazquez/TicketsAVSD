@@ -12,16 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('chat', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('id_ticket');
-            $table->string('mensaje');
-            $table->string('archivos');
-            $table->unsignedBigInteger('sender_id');
-            $table->timestamps();
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('id_ticket')->nullable();
+            $table->text('mensaje');
+            $table->unsignedBigInteger('id_usuario')->nullable();
 
+            // Timestamps personalizados
+            $table->timestamp('creado_en')->useCurrent();
+            $table->timestamp('actualizado_en')->useCurrent()->useCurrentOnUpdate();
 
-            $table->foreign('id_ticket')->references('id')->on('tickets')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('sender_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            // Llaves foráneas
+            $table->foreign('id_ticket')->references('id')->on('tickets')->onDelete('set null');
+            $table->foreign('id_usuario')->references('id')->on('users')->onDelete('set null');
         });
     }
 

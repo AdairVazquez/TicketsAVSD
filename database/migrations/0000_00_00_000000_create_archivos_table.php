@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('rol', function (Blueprint $table) {
+        Schema::create('archivos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre_rol', 255);
-            $table->timestamp('creado_en')->useCurrent();
-            $table->timestamp('actualizado_en')->useCurrent()->useCurrentOnUpdate();
+            $table->string('ruta', 255);
+            $table->string('tipo', 50)->nullable();
+            $table->timestamps();
         });
     }
 
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('rol');
+        Schema::dropIfExists('archivos');
     }
 };
