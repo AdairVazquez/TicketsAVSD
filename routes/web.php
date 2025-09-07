@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin_controller;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -16,6 +17,9 @@ Route::post('/logout', function () {
     Auth::logout();
     return redirect('/login');
 })->name('logout');
+
+Route::get('/SuperAdmin/inicio', [admin_controller::class, 'dashboard'])->name('admin.dash');
+Route::get('/SuperAdmin/listaUsuarios', [admin_controller::class, 'lista_usuarios'])->name('admin.listUsu');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

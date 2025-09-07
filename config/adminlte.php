@@ -1,5 +1,6 @@
 <?php
 
+
 return [
 
     /*
@@ -298,6 +299,8 @@ return [
     |
     */
 
+ 
+
     'menu' => [
         // Navbar items:
         [
@@ -306,71 +309,137 @@ return [
         ],
 
         // Sidebar items:
+
+        //MENU INICIO PARA LOS DIFERENTES ROLES
         [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-        ],
-        [
-            'text' => 'blog',
-            'url' => 'admin/blog',
-            'can' => 'manage-blog',
-        ],
-        [
-            'text' => 'pages',
-            'url' => 'admin/pages',
-            'icon' => 'far fa-fw fa-file',
-            'label' => 4,
+            'text' => 'Inicio',
+            'url' => 'SuperAdmin/inicio',
+            'icon' => 'fas fa-fw fa-home',
             'label_color' => 'success',
+            'can' => 'is-admin'
         ],
-        ['header' => 'account_settings'],
         [
-            'text' => 'profile',
-            'url' => 'admin/settings',
+            'text' => 'Inicio',
+            'url' => 'Soporte/inicio',
+            'icon' => 'fas fa-fw fa-home',
+            'label_color' => 'success',
+            'can' => 'is-soporte'
+        ],
+        [
+            'text' => 'Inicio',
+            'url' => 'Cliente/inicio',
+            'icon' => 'fas fa-fw fa-home',
+            'label_color' => 'success',
+            'can' => 'is-cliente'
+        ],
+        //MENU INICIO PARA LOS DIFERENTES ROLES
+
+
+        ['header' => 'ACCIONES'],
+
+        //SIDEBAR DE SUPERADMINISTRADOR
+        [
+            'text' => 'Usuarios',
             'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text' => 'multilevel',
-            'icon' => 'fas fa-fw fa-share',
+            'can' => 'is-admin',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url' => '#',
+                    'text' => 'Lista de usuarios',
+                    'url' => 'SuperAdmin/listaUsuarios',
+                    'icon' => 'fas fa-fw fa-circle',
                 ],
                 [
-                    'text' => 'level_one',
+                    'text' => 'Crear usuario',
                     'url' => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                        ],
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                            ],
-                        ],
-                    ],
+                    'icon' => 'fas fa-fw fa-circle',
                 ],
                 [
-                    'text' => 'level_one',
+                    'text' => 'Lista de roles',
                     'url' => '#',
+                    'icon' => 'fas fa-fw fa-circle',
+                ],
+                [
+                    'text' => 'Crear rol',
+                    'url' => '#',
+                    'icon' => 'fas fa-fw fa-circle',
                 ],
             ],
         ],
+        [
+            'text' => 'Tickets',
+            'icon' => 'fas fa-ticket-alt',
+            'can' => 'is-admin',
+            'submenu' => [
+                [
+                    'text' => 'Todos los tickets',
+                    'url' => '#',
+                    'icon' => 'fas fa-fw fa-circle',
+                ],
+                [
+                    'text' => 'Mis Tickets',
+                    'url' => '#',
+                    'icon' => 'fas fa-fw fa-circle',
+                ],
+                [
+                    'text' => 'Crear Ticket',
+                    'url' => '#',
+                    'icon' => 'fas fa-fw fa-circle',
+                ],
+            ],
+        ],
+        [
+            'text' => 'Logs',
+            'url' => '#',
+            'icon' => 'fas fa-chart-line ',
+            'can' => 'is-admin'
+        ],
+        //FIN SIDEBAR SUPERADMINISTRADOR
+
+        //SIDEBAR PARA SOPORTE TECNICO
+        [
+            'text' => 'Mis Tickets',
+            'url' => '#',
+            'icon' => 'fas fa-ticket-alt',
+            'can' => 'is-soporte'
+        ],
+        [
+            'text' => 'Todos los Tickets',
+            'url' => '#',
+            'icon' => 'fas fa-ticket-alt',
+            'can' => 'is-soporte'
+        ],
+        [
+            'text' => 'Crear Ticket',
+            'url' => '#',
+            'icon' => 'fas fa-ticket-alt',
+            'can' => 'is-soporte'
+        ],
+        //FIN SIDEBAR SOPORTE TECNICO
+
+        //SIDEBAR CLIENTE
+        [
+            'text' => 'Tickets abiertos',
+            'url' => '#',
+            'icon' => 'fas fa-ticket-alt',
+            'can' => 'is-cliente'
+        ],
+        [
+            'text' => 'Todos los tickets',
+            'url' => '#',
+            'icon' => 'fas fa-ticket-alt',
+            'can' => 'is-cliente'
+        ],
+        [
+            'text' => 'Crear nuevo ticket',
+            'url' => '#',
+            'icon' => 'fas fa-ticket-alt',
+            'can' => 'is-cliente'
+        ],
+        
+        
+        
+
+        //FIN SIDEBAR CLIENTE
         
     ],
 
