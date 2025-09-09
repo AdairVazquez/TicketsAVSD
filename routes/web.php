@@ -20,6 +20,9 @@ Route::post('/logout', function () {
 
 Route::get('/SuperAdmin/inicio', [admin_controller::class, 'dashboard'])->name('admin.dash');
 Route::get('/SuperAdmin/listaUsuarios', [admin_controller::class, 'lista_usuarios'])->name('admin.listUsu');
+Route::post('/SuperAdmin/storeUsuario', [admin_controller::class, 'store'])->name('superadmin.usuarios.store');
+Route::get('/SuperAdmin/listaUsuario', [admin_controller::class, 'listaUsuario'])->name('superadmin.usuarios.list');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
