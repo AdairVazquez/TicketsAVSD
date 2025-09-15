@@ -349,20 +349,11 @@ return [
                     'icon' => 'fas fa-fw fa-circle',
                 ],
                 [
-                    'text' => 'Crear usuario',
-                    'url' => '#',
-                    'icon' => 'fas fa-fw fa-circle',
-                ],
-                [
                     'text' => 'Lista de roles',
-                    'url' => '#',
+                    'url' => 'SuperAdmin/listaRoles',
                     'icon' => 'fas fa-fw fa-circle',
                 ],
-                [
-                    'text' => 'Crear rol',
-                    'url' => '#',
-                    'icon' => 'fas fa-fw fa-circle',
-                ],
+                
             ],
         ],
         [
